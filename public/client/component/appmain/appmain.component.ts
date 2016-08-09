@@ -6,6 +6,8 @@ import {AppComponent} from '../dashboard/dashboard.component';
 import {AppContentComponent} from '../content/content.component';
 import {ProfileComponent} from '../profile/profile.component'
 
+import {MyBlogComponent} from '../Blog/blog.component';
+
 
 @Component({
     selector: 'my-app',
@@ -17,6 +19,7 @@ import {ProfileComponent} from '../profile/profile.component'
   {path:'/home', name:'Home',component:AppContentComponent, useAsDefault:true},
   {path:'/profile', name:'Profile',component:ProfileComponent},
   {path:'/message', name:'Message',component:AppComponent},
+  {path:'/blog',name:'Blog',component:MyBlogComponent},
   {path: '/**', redirectTo: ['Home'] }
 ])
 

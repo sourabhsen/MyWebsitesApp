@@ -26,6 +26,13 @@ export class AuthService {
                .catch(this.handleError);
     }
 
+    getBlogs(){
+        return this.http.get('/blogs')
+               .toPromise()
+               .then(response => response.json().data)
+               .catch(this.handleError);
+    }
+
 private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
