@@ -13,16 +13,17 @@ router.get('/app/*', function(req, res, next) {
 });
 
 router.get('/blogs',function(req,res,next){
-     
-        Posts.find(function(err,data){
-                  if(err){
-                     return next(err);
-                  }else{
-                     console.log(data);
-                     res.json(data);
-                  }
-        })
-     
+     console.log(Posts);
+     Posts.find(function(err,result) {
+          if(err){
+              next(err);
+          }else if(result.length === 0){
+              console.log('there is no record');
+              res.send('there is no record')
+          }else{
+             res.json(result);
+          }
+     })
 })
 
 
