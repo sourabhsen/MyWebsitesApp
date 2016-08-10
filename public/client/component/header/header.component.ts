@@ -15,18 +15,14 @@ export class HeaderComponent {
     
     constructor(private auth_Service:AuthService){
     
-        debugger;
+
         this.getList();
 
     }
 
   getList(){
     let self = this; 
-    debugger;
-     this.auth_Service.fetch().then(function(response) {
-         console.log(response);
-         debugger;
-     });
+    
     
     }
 }

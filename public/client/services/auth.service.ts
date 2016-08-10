@@ -20,17 +20,13 @@ export class AuthService {
 
   fetch() {
      let self = this;
+
       return this.http.get(this.requestUrl)
-               .toPromise()
-               .then(response => response.json().data)
-               .catch(this.handleError);
+          
     }
 
     getBlogs(){
-        return this.http.get('/blogs')
-               .toPromise()
-               .then(response => response.json().data)
-               .catch(this.handleError);
+        return this.http.get('/blogs');
     }
 
 private handleError(error: any) {

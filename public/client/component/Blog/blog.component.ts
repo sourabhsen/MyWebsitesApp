@@ -8,11 +8,22 @@ import {AuthService} from 'client/services/auth.service';
 })
 
 export class MyBlogComponent{
+     items: Array<any>;
+     postItem:Array<Object>;
+     errorMessage: boolean = false;
+
       constructor(private auth_service: AuthService){
           this.getBlog();
       }
 
       getBlog(){
-          this.auth_service.getBlogs();
+          let self = this;
+          this.auth_service.getBlogs().subscribe(function(response:any){
+               self.postItem = JSON.parse(response._body);
+               if(!self.postItem.length){
+                   self.errorMessage = true;
+               }
+          }); 
+        
       }
 }
