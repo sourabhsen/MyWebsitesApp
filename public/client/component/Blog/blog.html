@@ -1,22 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-
-            <div class="post text" *ngFor="#post of postItem" *ngIf="post">
-
+        <div class="col-md-7">
+         
+            <div class="post text clearfix panel panel-default" *ngFor="#post of postItem" *ngIf="post">
+             <div class="panel-body">
                 <h2><a [href]="post.link">
                       {{post.title}}</a>
                         </h2>
-                <p>
-                    {{post.created_at}}
-                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date_label}}</p>
+                <hr>
                 <p>{{post.description}}</p>
-
-                <p></p>
-                <p class="read_more_container">
+                 <hr>
+                <div class="clearfix">
+                <p class="read_more_container pull-left col-xs-4">
                     <a [href]="post.link" class="read_more">Keep reading</a>
                 </p>
+                <p class="clearfix pull-right col-xs-6">
+                    <label class="pull-right col-xs-3"><span class="glyphicon glyphicon-thumbs-up"></span> 0 </label>
+                    <label class="pull-right col-xs-3"><span class="glyphicon glyphicon-thumbs-down"></span> 0</label>
+
+                 </p>
+                </div>
+                <hr style="border-color:rgba(0, 0, 0, 0.25)">
             </div>
+            </div>
+        
             <div *ngIf="errorMessage">
                 <h2 class="text-danger">sorry somewent wrong , the blog is not loading due to some network problem</h2>
             </div>
@@ -24,7 +32,7 @@
           
 
         </div>
-        <div class="col-md-4 col-md-push-2">
+        <div class="col-md-4 pull-right">
             <div class="well">
                 <h4>Recent Posts:</h4>
                 <div class="widget" id="TumblrRecentPosts"></div>
