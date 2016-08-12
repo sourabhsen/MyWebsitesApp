@@ -7,6 +7,7 @@ import {AppContentComponent} from '../content/content.component';
 import {ProfileComponent} from '../profile/profile.component'
 
 import {MyBlogComponent} from '../Blog/blog.component';
+import {MyBlogDetailComponent} from '../Blog/blogdetail.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ import {MyBlogComponent} from '../Blog/blog.component';
   {path:'/profile', name:'Profile',component:ProfileComponent},
   {path:'/message', name:'Message',component:AppComponent},
   {path:'/blog',name:'Blog',component:MyBlogComponent},
+ 
   {path: '/**', redirectTo: ['Home'] }
 ])
 

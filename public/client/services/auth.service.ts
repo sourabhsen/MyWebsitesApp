@@ -29,6 +29,14 @@ export class AuthService {
         return this.http.get('/blogs');
     }
 
+    updateVote(dataObj:any){
+        return this.http.put('post/' + dataObj._id + '/upvote');
+    }
+
+     degradeVote(dataObj:any){
+        return this.http.put('post/' + dataObj._id + '/downvote');
+    }
+
 private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

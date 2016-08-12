@@ -1,3 +1,4 @@
+'use strict';
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
@@ -12,6 +13,7 @@ var Postschema = new Schema({
     created_at: Date,
     updated_at: Date,
     date_label:String,
+    pageUrl:String,
     upvotes:{type: Number, default: 0},
     downvotes:{type: Number, default: 0} 
 });
@@ -34,7 +36,11 @@ Postschema.pre('save', function(next) {
   // change the updated_at field to current date
   this.updated_at = currentDate;
   
-  
+  //pageUrllink
+  if(this._id && this.title){
+      let title = this.title.replace(/\W/g,'-');
+      this.pageUrl = '/post/' + this._id +'/'+ title;
+  }
 
   // if created_at doesn't exist, add to that field
   if (!this.created_at){
